@@ -15,7 +15,7 @@ mongoose
     console.log("DB CONNECTED");
   });
 
-app.get("/", (req, res) => res.send("Home Page"));
+app.get("/", (req, res) => res.send("HomePage"));
 
 app.listen(port, () => {
   console.log(`app is running at ${port}`);
