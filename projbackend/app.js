@@ -3,6 +3,7 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
+const port = process.env.PORT || 4000;
 
 mongoose
   .connect(process.env.DATABASE, {
@@ -14,10 +15,8 @@ mongoose
     console.log("DB CONNECTED");
   });
 
-
-const port = process.env.PORT || 4000;
+app.get("/", (req, res) => res.send("Home Page"));
 
 app.listen(port, () => {
   console.log(`app is running at ${port}`);
 });
-
