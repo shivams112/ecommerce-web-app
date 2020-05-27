@@ -6,9 +6,12 @@ const app = express();
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+const authRoutes = require("./routes/auth");
 
+//PORT Number
 const port = process.env.PORT || 4000;
 
+//DB Connection
 mongoose
   .connect(process.env.DATABASE, {
     useNewUrlParser: true,
@@ -19,15 +22,15 @@ mongoose
     console.log("DB CONNECTED");
   });
 
+//Middlewares
 app.use(cors());
 app.use(cookieParser());
 app.use(bodyParser());
 
-app.get("/", (req, res) => {
-  console.log(req.body);
-  res.send("HomePage");
-});
+//Router
+app.use("/api", authRoutes);
 
+//Starting server
 app.listen(port, () => {
   console.log(`app is running at ${port}`);
 });
