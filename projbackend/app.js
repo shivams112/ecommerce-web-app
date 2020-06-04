@@ -6,7 +6,10 @@ const app = express();
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+
+//My Routes
 const authRoutes = require("./routes/auth");
+const userRoutes = require("./routes/user");
 
 //PORT Number
 const port = process.env.PORT || 4000;
@@ -29,6 +32,7 @@ app.use(bodyParser());
 
 //Router
 app.use("/api", authRoutes);
+app.use("/api", userRoutes);
 
 //Starting server
 app.listen(port, () => {
