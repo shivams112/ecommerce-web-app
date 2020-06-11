@@ -10,6 +10,7 @@ const cors = require("cors");
 //My Routes
 const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
+const categoryRoutes = require("./routes/category");
 
 //PORT Number
 const port = process.env.PORT || 4000;
@@ -33,6 +34,8 @@ app.use(bodyParser());
 //Router
 app.use("/api", authRoutes);
 app.use("/api", userRoutes);
+app.use("/api", categoryRoutes);
+
 
 //Starting server
 app.listen(port, () => {
