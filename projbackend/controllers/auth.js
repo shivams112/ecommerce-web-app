@@ -13,6 +13,7 @@ exports.signUp = (req, res) => {
     });
   }
 
+  //always use error nor err keyword
   const user = new User(req.body);
   user.save((err, user) => {
     if (err) {
