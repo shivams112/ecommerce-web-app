@@ -10,14 +10,14 @@ const Base = ({
   return (
     <div>
       <Navbar />
-      <div className="container-fluid bg-light">
-        {/* <div className="jumbotron bg-light text-black text-center">
-          <h2 className="display-4 bg-light">{title}</h2>
-          <p className="lead">{description}</p>
-        </div> */}
+      <div className="container-fluid">
+        <div className="jumbotron heading-box text-black text-center px-1 py-1 bg-white fit">
+          <h2 className="display-4 bg-white">{title}</h2>
+          {/* <p className="lead">{description}</p> */}
+        </div>
         <div className={className}>{children}</div>
       </div>
-      <footer className="footer mt-auto py-3 bg-light">
+      <footer className="footer mt-auto py-3">
         <div className="container-fluid bg-green text-black text-center py-3">
           <h4>If you have any questions, feel free to ask!</h4>
           <button className="btn btn-warning btn-lg ">Contact Us</button>

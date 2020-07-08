@@ -14,10 +14,13 @@ export const signup = (user) => {
     })
     .catch((error) => {
       console.log(error);
+      return {error:"Server is Down"}
     });
 };
 
 export const signin = (user) => {
+    console.log(`${API}/signin`);
+    
     return fetch(`${API}/signin`, {
       method: "POST",
       headers: {
@@ -30,7 +33,8 @@ export const signin = (user) => {
         return response.json();
       })
       .catch((error) => {
-        console.log(error);
+       console.log(error);
+       return {error:"Server is Down"}
       });
   };
 

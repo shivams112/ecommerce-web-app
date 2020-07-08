@@ -1,17 +1,13 @@
 import React, { useState } from "react";
 import Base from "../core/Base";
-import logo from "./log.png";
 import { Link } from "react-router-dom";
 import { signup } from "../auth/helper/index";
 
 const Signup = () => {
   const SignUpForm = () => {
     return (
-      <div className="row">
-        <div className="col-md-6">
-          <img src={logo} alt="" height="400" width="600" />
-        </div>
-        <div className="col-md-6">
+      <div className="row" >
+        <div className="col-md-6 offset-sm-3 text-left">
           <form>
             <div className="form-group">
               <label>Name</label>
@@ -25,7 +21,7 @@ const Signup = () => {
               />
             </div>
             <div className="form-group">
-              <label for="exampleInputEmail1">Email address</label>
+              <label>Email address</label>
               <input
                 type="email"
                 className="form-control"
@@ -40,7 +36,7 @@ const Signup = () => {
               </small>
             </div>
             <div className="form-group">
-              <label for="exampleInputPassword1">Password</label>
+              <label>Password</label>
               <input
                 type="password"
                 className="form-control"
@@ -56,7 +52,7 @@ const Signup = () => {
                 className="form-check-input"
                 id="exampleCheck1"
               />
-              <label className="form-check-label" for="exampleCheck1">
+              <label className="form-check-label">
                 Check me out
               </label>
             </div>
@@ -89,6 +85,8 @@ const Signup = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
+    if(checkValidity())
+    return;
     setValues({ ...values, error: false });
     signup({ name, email, password })
       .then((data) => {
@@ -111,13 +109,12 @@ const Signup = () => {
   const successMsg = () => {
     return (
       <div className="row">
-        <div className="col-md-6"></div>
-        <div className="col-md-6">
+        <div className="col-md-6 offset-sm-3 text-left">
           <div
             className="alert alert-success"
             style={{ display: success ? "" : "none" }}
           >
-            You are successfully registered! Please{" "}
+            You are successfully registered! Please 
             <Link to="/signin"> Login here</Link>
           </div>
         </div>
@@ -125,11 +122,22 @@ const Signup = () => {
     );
   };
 
+  const checkValidity = () => {
+    if (name === "" || email === "" || password === "") {
+      setValues({
+        ...values,
+        error: "All fields are mandatory",
+        loading: false,
+      });
+      return true;
+    }
+    return false;
+  };
+
   const errorMsg = () => {
     return (
       <div className="row">
-        <div className="col-md-6"></div>
-        <div className="col-md-6">
+        <div className="col-md-6 offset-sm-3 text-left">
           <div
             className="alert alert-danger"
             style={{ display: error ? "" : "none" }}
@@ -142,7 +150,7 @@ const Signup = () => {
   };
 
   return (
-    <Base title="" description="">
+    <Base title="Sign Up" description="" className="middle-box bg-white text-black p-4">
       {successMsg()}
       {errorMsg()}
       {SignUpForm()}
