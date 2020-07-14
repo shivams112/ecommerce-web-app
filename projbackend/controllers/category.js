@@ -48,7 +48,7 @@ exports.updateCategory = (req, res) => {
         error: "Category not found in DB",
       });
     }
-    res.json(updatedCategory);
+    return res.json(updatedCategory);
   });
 };
 

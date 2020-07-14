@@ -77,8 +77,9 @@ const Navbar = ({ history }) => {
         )}
         {isAuthenticated() && (
           <li className="nav-item">
+            <Link className="nav-link text-black">
             <span
-              className="nav-link text-warning"
+              className=""
               onClick={() => {
                 signout(() => {
                   history.push("/");
@@ -87,6 +88,7 @@ const Navbar = ({ history }) => {
             >
               Signout
             </span>
+            </Link>
           </li>
         )}
       </ul>

@@ -4,16 +4,16 @@ import Navbar from "./Navbar";
 const Base = ({
   title = "My Title",
   description = "my description",
-  className = "bg-light text-black p-4",
+  className = "text-black p-4",
   children,
 }) => {
   return (
     <div>
       <Navbar />
       <div className="container-fluid">
-        <div className="jumbotron heading-box text-black text-center px-1 py-1 bg-white fit">
-          <h2 className="display-4 bg-white">{title}</h2>
-          {/* <p className="lead">{description}</p> */}
+        <div className="heading-box text-black text-center px-1 py-1 fit ">
+          <h2 className="display-4 ">{title}</h2>
+          <p className="lead">{description}</p>
         </div>
         <div className={className}>{children}</div>
       </div>
