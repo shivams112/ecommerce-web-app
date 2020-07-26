@@ -12,6 +12,7 @@ import AddProduct from "./admin/AddProduct";
 import ManageCategories from "./admin/ManageCategories";
 import ManageProducts from "./admin/ManageProducts";
 import UpdateProduct from "./admin/UpdateProduct";
+import Cart from "./core/Cart";
 
 const Routes = () => {
   return (
@@ -19,6 +20,7 @@ const Routes = () => {
       <Switch>
         <Route path="/" exact component={Home} />
         {/* <PrivateRoute path="/" exact component={Home} /> */}
+        <Route path="/cart" exact component={Cart} />
         <Route path="/signup" exact component={Signup} />
         <Route path="/signin" exact component={Signin} />
         <PrivateRoute path="/user/dashboard" exact component={UserDashboard} />

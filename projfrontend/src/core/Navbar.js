@@ -4,15 +4,19 @@ import { signout, isAuthenticated } from "../auth/helper";
 
 const currentTab = (history, path) => {
   if (history.location.pathname === path) {
-    return { background: "#FDC006" };
+    return { color: "#4f8a8b", "font-weight": "bold" };
   }
 };
 
 const Navbar = ({ history }) => {
   return (
     <div>
-      <ul className="nav nav-tabs bg-green ">
-        <li className="nav-item">
+      <ul className="nav">
+      <li className="nav-item p-3 mx-5 bg-white">
+        <h2 className="font-weight-bold">IndiaVesture.com</h2>
+        </li>
+        <Fragment className="">
+        <li className="nav-item px-3 ">
           <Link
             className="nav-link text-black"
             style={currentTab(history, "/")}
@@ -21,7 +25,7 @@ const Navbar = ({ history }) => {
             Home
           </Link>
         </li>
-        <li className="nav-item">
+        <li className="nav-item px-3">
           <Link
             className="nav-link text-black"
             style={currentTab(history, "/cart")}
@@ -31,7 +35,7 @@ const Navbar = ({ history }) => {
           </Link>
         </li>
         {isAuthenticated() && (
-          <li className="nav-item">
+          <li className="nav-item px-3">
             <Link
               className="nav-link text-black"
               style={currentTab(history, "/user/dashboard")}
@@ -42,7 +46,7 @@ const Navbar = ({ history }) => {
           </li>
         )}
         {isAuthenticated() && isAuthenticated().user.role === 1 && (
-          <li className="nav-item">
+          <li className="nav-item px-3">
             <Link
               className="nav-link text-black"
               style={currentTab(history, "/admin/dashboard")}
@@ -54,7 +58,7 @@ const Navbar = ({ history }) => {
         )}
         {!isAuthenticated() && (
           <Fragment>
-            <li className="nav-item">
+            <li className="nav-item px-3">
               <Link
                 className="nav-link text-black"
                 style={currentTab(history, "/signup")}
@@ -64,7 +68,7 @@ const Navbar = ({ history }) => {
               </Link>
             </li>
 
-            <li className="nav-item">
+            <li className="nav-item px-3">
               <Link
                 className="nav-link text-black"
                 style={currentTab(history, "/signin")}
@@ -76,7 +80,7 @@ const Navbar = ({ history }) => {
           </Fragment>
         )}
         {isAuthenticated() && (
-          <li className="nav-item">
+          <li className="nav-item px-3">
             <Link className="nav-link text-black">
             <span
               className=""
@@ -91,6 +95,7 @@ const Navbar = ({ history }) => {
             </Link>
           </li>
         )}
+        </Fragment>
       </ul>
     </div>
   );
